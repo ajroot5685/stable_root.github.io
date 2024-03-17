@@ -218,3 +218,10 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+#plugin
+plugins:
+  - jekyll-paginate
+  - jekyll-gist
+  - jekyll-include-cache
+  - jekyll-sitemap
