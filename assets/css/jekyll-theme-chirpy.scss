@@ -5,31 +5,61 @@
 
 /* append your custom style below */
 .spotlight1 {
-    border-left: 4px solid #3498db; // 강조 테두리 색상 변경 가능
-    background-color: rgba(52, 152, 219, 0.1); // 배경색 투명도 조절
-    padding: 1rem; // 내용과 테두리 사이의 패딩
-    margin: 1rem 0; // 상하 여백
-    border-radius: 4px; // 테두리 둥글기
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); // 박스 그림자 효과
-    font-family: 'Open Sans', sans-serif; // 폰트 설정, 테마에 따라 변경
-    color: #333; // 텍스트 색상
-  
-    // 선택적으로 내부 요소(예: h1, p 등)에 대한 스타일 지정
-    h1, h2, h3, h4, h5, h6 {
-      color: #3498db; // 헤딩 색상
-    }
-    
-    p {
-      margin-bottom: 0.5rem;
-      line-height: 1.6; // 행간 설정
-    }
-  
-    a {
-      color: #3498db; // 링크 색상
-      text-decoration: underline; // 링크 밑줄
-  
-      &:hover {
-        color: darken(#3498db, 10%); // 링크 호버 색상
-      }
+  border-left: 4px solid #3498db; // 강조 테두리 색상 변경 가능
+  background-color: rgba(52, 152, 219, 0.1); // 배경색 투명도 조절
+  padding: 1rem; // 내용과 테두리 사이의 패딩
+  margin: 1rem 0; // 상하 여백
+  border-radius: 4px; // 테두리 둥글기
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // 박스 그림자 효과
+  font-family: 'Open Sans', sans-serif; // 폰트 설정, 테마에 따라 변경
+  color: #333; // 텍스트 색상
+
+  // 선택적으로 내부 요소(예: h1, p 등)에 대한 스타일 지정
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #3498db; // 헤딩 색상
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6; // 행간 설정
+  }
+
+  a {
+    color: #3498db; // 링크 색상
+    text-decoration: underline; // 링크 밑줄
+
+    &:hover {
+      color: darken(#3498db, 10%); // 링크 호버 색상
     }
   }
+}
+
+// 간단한 연한 녹색 박스와 가운데 정렬된 텍스트, 그리고 왼쪽에 전구 아이콘을 위한 SCSS 코드
+.spotlight2 {
+  background-color: rgb(123, 247, 144, 0.2); // 연한 녹색 배경
+  color: #333; // 흰색 텍스트
+  padding: 20px; // 텍스트 주위의 패딩
+  padding-left: 60px; // 왼쪽 패딩을 더 추가하여 아이콘 자리를 만듦
+  font-family: 'Open Sans', sans-serif; // 폰트 스타일
+  font-size: 20px; // 폰트 크기
+  border-radius: 4px; // 둥근 모서리
+  margin: 1rem 0; // 상하 여백
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // 은은한 그림자
+  position: relative; // 가상 요소 위치 지정을 위해 relative 설정
+
+  // 전구 아이콘
+  &:before {
+    content: '💡'; // 전구 이모티콘 문자열
+    position: absolute; // 절대 위치
+    left: 20px; // 왼쪽으로부터 10px 위치
+    top: 50%; // 상자의 수직 중앙
+    transform: translateY(-50%); // 중앙 정렬을 위해 Y축 기준 -50% 이동
+    font-size: 24px; // 아이콘 크기
+    color: yellow; // 아이콘 색상
+  }
+}
