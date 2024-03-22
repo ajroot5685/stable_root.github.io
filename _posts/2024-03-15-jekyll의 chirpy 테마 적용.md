@@ -135,3 +135,5 @@ internal script /assets/js/dist/misc.min.js does not exist (line 1)
   [[Jekyll] 깃허브 지킬 블로그 구글 검색에 나타나게 하기 - 사이트맵 추가하기](https://chaerim-kim.github.io/jekyll%20blog/Jekyll-1/)
 
   [구글서치콘솔 소유권 확인 방법](https://lotis.tistory.com/90)
+
+  [SEO (검색엔진 최적화)란? – 구글, 네이버 가이드 총정리](https://seo.tbwakorea.com/blog/seo-guide-2022/#part6)
