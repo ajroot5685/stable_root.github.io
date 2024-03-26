@@ -11,17 +11,6 @@ tags:
   ]
 ---
 
-## 누군가가 물어본다면
-<div class="spotlight1">
-String 은 불변하여 concat 연산 시 새로운 String 객체를 생성하고 이로 인해 성능이 떨어집니다.
-<br><br>
-반면 StirngBuilder와 StringBuffer 는 가변하여 문자열 연산이 자주 발생하는 상황에서 좋은 성능을 보입니다.
-<br><br>
-StringBuilder는 Thread-safe 하지 않고, StringBuffer는 Thread-safe 하여 동기화가 필요한 상황에서는 StringBuffer가 유리합니다.
-</div>
-
-<br>
-
 ## String 이란?
 - Immutable(불변)하기 때문에 `+` 등의 concat 연산 시 원본을 변경하지 않고 새로운 String 객체를 생성한다.
     - 이로 인해 메모리 공간의 낭비가 발생하고 성능이 떨어진다.
@@ -70,3 +59,14 @@ StringBuilder는 Thread-safe 하지 않고, StringBuffer는 Thread-safe 하여 �
     }
     String result = sb.toString();
     ```
+
+<br>
+
+## 누군가가 물어본다면
+<div class="spotlight1">
+String 은 불변하여 concat 연산 시 새로운 String 객체를 생성하고 이로 인해 성능이 떨어집니다.
+<br><br>
+반면 StirngBuilder와 StringBuffer 는 가변하여 문자열 연산이 자주 발생하는 상황에서 좋은 성능을 보입니다.
+<br><br>
+StringBuilder는 Thread-safe 하지 않고, StringBuffer는 Thread-safe 하여 동기화가 필요한 상황에서는 StringBuffer가 유리합니다.
+</div>

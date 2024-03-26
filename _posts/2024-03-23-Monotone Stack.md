@@ -10,13 +10,6 @@ tags:
   ]
 ---
 
-## 누군가가 물어본다면
-<div class="spotlight1">
-monotone stack은 일련의 값에서 각 요소의 다음에 <code class="language-plaintext highlighter-rouge">처음으로</code> 크거나 작은 요소를 찾는 문제에 적합합니다.
-</div>
-
-<br>
-
 ## Monotone Stack 이란?
 - 일련의 값에서 바로 다음 큰값이나, 바로 다음 작은 값을 구해야할 때 사용할 수 있는 Stack 풀이법이다.
 - 주로 배열의 요소들을 순회하면서, 각 요소의 다음에 오는 더 큰 요소나 더 작은 요소를 찾는 문제에 사용된다.
@@ -121,3 +114,10 @@ public class Main {
 - [16288-Passport Control (골드 3)](https://www.acmicpc.net/problem/16288)
 - [14719-빗물 (골드 5)](https://www.acmicpc.net/problem/14719)
 - [1725-히스토그램 (플레 5)](https://www.acmicpc.net/problem/1725)
+
+<br>
+
+## 누군가가 물어본다면
+<div class="spotlight1">
+monotone stack은 일련의 값에서 각 요소의 다음에 <code class="language-plaintext highlighter-rouge">처음으로</code> 크거나 작은 요소를 찾는 문제에 적합합니다.
+</div>
