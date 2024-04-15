@@ -137,3 +137,5 @@ internal script /assets/js/dist/misc.min.js does not exist (line 1)
   [구글서치콘솔 소유권 확인 방법](https://lotis.tistory.com/90)
 
   [SEO (검색엔진 최적화)란? – 구글, 네이버 가이드 총정리](https://seo.tbwakorea.com/blog/seo-guide-2022/#part6)
+
+  [Github 페이지 Chirpy 테마 변경내용 실시간 적용 방법](https://friendlyvillain.github.io/posts/chirpy-refresh/)
