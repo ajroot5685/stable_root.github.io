@@ -42,7 +42,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(swconf.cacheName).then((cache) => {
       return cache.addAll(swconf.resources).then(() => {
-        return self.skipWaiting(); // 설치 후 즉시 활성화
+        return self.skipWaiting();
       });
     })
   );
@@ -50,7 +50,7 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    self.clients.claim() // 모든 클라이언트를 즉시 업데이트
+    self.clients.claim()
   );
 });
 
@@ -63,7 +63,6 @@ self.addEventListener('message', (event) => {
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     fetch(event.request).then((response) => {
-      // 네트워크 응답을 확인하고 캐시에 저장
       let responseToCache = response.clone();
       if (response.status === 200 && response.type === 'basic') {
         caches.open(swconf.cacheName).then((cache) => {
@@ -72,7 +71,6 @@ self.addEventListener('fetch', (event) => {
       }
       return response;
     }).catch(() => {
-      // 오프라인 상태 또는 요청 실패 시 캐시된 데이터 반환
       return caches.match(event.request);
     })
   );
