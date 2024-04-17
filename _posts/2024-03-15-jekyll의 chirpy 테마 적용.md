@@ -139,3 +139,92 @@ internal script /assets/js/dist/misc.min.js does not exist (line 1)
   [SEO (검색엔진 최적화)란? – 구글, 네이버 가이드 총정리](https://seo.tbwakorea.com/blog/seo-guide-2022/#part6)
 
   [Github 페이지 Chirpy 테마 변경내용 실시간 적용 방법](https://friendlyvillain.github.io/posts/chirpy-refresh/)
+
+<br>
+
+**jekyll pwa 페이지를 수동이 아닌 자동으로 업데이트 되도록 변경**
+
+- chirpy 테마 기준으로 assets/js/pwa 디렉토리의 app.js 와 sw.js를 다음 코드로 변경합니다.
+  > 겹치는 부분만 바꿔주세요.
+
+  <details>
+    <summary>app.js</summary>
+    <div markdown="1">
+    ```js
+    if ('serviceWorker' in navigator) {
+      const isEnabled = '{{ site.pwa.enabled }}' === 'true';
+
+      if (isEnabled) {
+        const swUrl = '{{ '/sw.min.js' | relative_url }}';
+
+        navigator.serviceWorker.register(swUrl).then((registration) => {
+          registration.addEventListener('updatefound', () => {
+            const installingWorker = registration.installing;
+            installingWorker.addEventListener('statechange', () => {
+              if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                installingWorker.postMessage('SKIP_WAITING');
+              }
+            });
+          });
+        });
+
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          window.location.reload();
+        });
+      } else {
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+          for (let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+    }
+    ```
+    </div>
+  </details>
+
+
+  <details>
+    <summary>sw.js</summary>
+    <div markdown="1">
+    ```js
+    self.addEventListener('install', (event) => {
+      event.waitUntil(
+        caches.open(swconf.cacheName).then((cache) => {
+          return cache.addAll(swconf.resources).then(() => {
+            return self.skipWaiting();
+          });
+        })
+      );
+    });
+
+    self.addEventListener('activate', (event) => {
+      event.waitUntil(
+        self.clients.claim()
+      );
+    });
+
+    self.addEventListener('message', (event) => {
+      if (event.data === 'SKIP_WAITING') {
+        self.skipWaiting();
+      }
+    });
+
+    self.addEventListener('fetch', (event) => {
+      event.respondWith(
+        fetch(event.request).then((response) => {
+          let responseToCache = response.clone();
+          if (response.status === 200 && response.type === 'basic') {
+            caches.open(swconf.cacheName).then((cache) => {
+              cache.put(event.request, responseToCache);
+            });
+          }
+          return response;
+        }).catch(() => {
+          return caches.match(event.request);
+        })
+      );
+    });
+    ```
+    </div>
+  </details>

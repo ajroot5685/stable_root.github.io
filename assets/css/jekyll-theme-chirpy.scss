@@ -62,3 +62,15 @@
     color: yellow; // 아이콘 색상
   }
 }
+
+// 토글 버튼
+
+summary {
+  font-weight: bold; /* 글자 진하게 */
+  color: #333; /* 글자 색상 */
+  cursor: pointer; /* 마우스 오버 시 커서 모양 변경 */
+}
+
+summary:hover {
+  color: #666; /* 마우스 오버 시 글자 색상 */
+}
