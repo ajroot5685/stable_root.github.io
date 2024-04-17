@@ -39,32 +39,18 @@ if (!purge) {
 }
 
 self.addEventListener('install', (event) => {
-  if (purge) {
-    return;
-  }
-
   event.waitUntil(
     caches.open(swconf.cacheName).then((cache) => {
-      return cache.addAll(swconf.resources);
+      return cache.addAll(swconf.resources).then(() => {
+        return self.skipWaiting(); // 설치 후 즉시 활성화
+      });
     })
   );
 });
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keyList) => {
-      return Promise.all(
-        keyList.map((key) => {
-          if (purge) {
-            return caches.delete(key);
-          } else {
-            if (key !== swconf.cacheName) {
-              return caches.delete(key);
-            }
-          }
-        })
-      );
-    })
+    self.clients.claim() // 모든 클라이언트를 즉시 업데이트
   );
 });
 
@@ -76,26 +62,18 @@ self.addEventListener('message', (event) => {
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      if (response) {
-        return response;
-      }
-
-      return fetch(event.request).then((response) => {
-        const url = event.request.url;
-
-        if (purge || event.request.method !== 'GET' || !verifyUrl(url)) {
-          return response;
-        }
-
-        {% comment %}See: <https://developers.google.com/web/fundamentals/primers/service-workers#cache_and_return_requests>{% endcomment %}
-        let responseToCache = response.clone();
-
+    fetch(event.request).then((response) => {
+      // 네트워크 응답을 확인하고 캐시에 저장
+      let responseToCache = response.clone();
+      if (response.status === 200 && response.type === 'basic') {
         caches.open(swconf.cacheName).then((cache) => {
           cache.put(event.request, responseToCache);
         });
-        return response;
-      });
+      }
+      return response;
+    }).catch(() => {
+      // 오프라인 상태 또는 요청 실패 시 캐시된 데이터 반환
+      return caches.match(event.request);
     })
   );
 });
