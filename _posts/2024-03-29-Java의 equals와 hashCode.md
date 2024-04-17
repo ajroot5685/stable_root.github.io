@@ -77,13 +77,13 @@ public class Object {
 2. 두 객체의 해시코드가 같다고 해서 두 객체가 `equals()` 로 비교했을 때 반드시 같을 필요는 없지만, 해시코드가 다르면 두 객체는 `equals()` 로 비교했을 때 반드시 다르다고 판단된다.
 
   ```java
-  obj1.hashCode() == obj2.hashCode()
-  - obj1.equals(obj2) == true : OK
-  - obj1.equals(obj2) == false : OK
+  // obj1.hashCode()와 obj2.hashCode()가 같다면
+  - obj1.equals(obj2) == true // OK, equals가 true 여도 된다.
+  - obj1.equals(obj2) == false  // OK, equals가 false 여도 된다.
 
-  obj1.hashCode() != obj2.hashCode()
-  - obj1.equals(obj2) == true : not OK
-  - obj1.equals(obj2) == false : OK
+  // obj1.hashCode()와 obj2.hashCode()가 같지 않다면
+  - obj1.equals(obj2) == true // not OK, equals가 true면 안된다.
+  - obj1.equals(obj2) == false // OK, equals가 false 여도 된다.
   ```
 
 <ol start="3">
