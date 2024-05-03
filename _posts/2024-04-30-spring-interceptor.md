@@ -1,7 +1,7 @@
 ---
 title: Spring Security 이해를 위한 Spring Interceptor 예제 살펴보기
 date: 2024-04-30 23:54:00 +09:00
-categories: [spring]
+categories: [spring, security]
 tags:
   [
     spring,
