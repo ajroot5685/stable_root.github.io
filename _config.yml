@@ -19,7 +19,7 @@ timezone: Asia/Seoul
 
 title: 안정적인 블로그 # the main title
 
-tagline: 기록을 일상으로 # it will display as the sub-title
+tagline: 깃허브 잔디 심기 프로젝트 # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   서버 개발자가 되기 위해 관련 기술을 학습하고 기록합니다.
@@ -91,7 +91,7 @@ theme_mode: # [light | dark]
 # img_cdn: "https://chirpy-img.netlify.app"
 
 # the avatar on sidebar, support local or CORS resources
-avatar: "/assets/img/profile/sprout.jpeg"
+avatar: "/assets/img/profile/sun.png"
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
