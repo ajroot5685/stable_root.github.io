@@ -20,6 +20,8 @@ tags:
 - github action 등장 전에는 `Jenkins`, `Circle CI`, `Travis CI` 등이 존재했다.
 - 낮지 않은 진입장벽, 복잡한 설정 등으로 인해 `CI/CD`가 DevOps 엔지니어들의 전유물로만 여겨지곤 했었다.
 
+> Jenkins로 CI/CD를 구축해봤지만, 아직까지도 어떻게 설정해야하는지 모르겠을 정도다..
+
 <br>
 
 ## Github Actions의 등장
