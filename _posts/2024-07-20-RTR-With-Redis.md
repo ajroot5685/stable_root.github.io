@@ -1,9 +1,10 @@
 ---
 title: JWT RTR 도입 (2/2) - 스프링에서 RTR 로직 적용
 date: 2024-07-20 20:21:00 +09:00
-categories: [spring]
+categories: [backend]
 tags:
   [
+    backend,
     spring,
     redis,
     jwt,
