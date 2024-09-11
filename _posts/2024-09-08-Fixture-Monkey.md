@@ -262,18 +262,18 @@ public class FixtureCommon {
     /**
      * 아래는 특정 데이터 형식을 가져오기 위한 함수들이다.
      */
-    public static String generateRandomEmail() {
+    public static Arbitrary<String> generateRandomEmail() {
         return Arbitraries.strings()
             .withCharRange('a','z')
             .ofLength(5)
-            .map(id -> id + "@hamagroups.io")
-            .sample();
+            .map(id -> id + "@gmail.com");
     }
 
-    public static String generateRandomPhoneNumber() {
-        return "010-" +
-            Arbitraries.integers().between(1000, 9999).sample() + "-" +
-            Arbitraries.integers().between(1000, 9999).sample();
+    public static Arbitrary<String> generateRandomPhoneNumber() {
+        return Arbitraries.integers().between(1000, 9999)
+            .flatMap(firstPart -> 
+                Arbitraries.integers().between(1000, 9999)
+                    .map(secondPart -> "010-" + firstPart + "-" + secondPart));
     }
 
 		.
