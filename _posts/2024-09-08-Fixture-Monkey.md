@@ -289,7 +289,7 @@ public class FixtureMember {
         return fixtureMonkey.giveMeBuilder(Member.class);
     }
 
-		public static ArbitraryBuilder<Member> memberArbitrary() {
+	public static ArbitraryBuilder<Member> memberArbitrary() {
         return member()
             .set("meIdx", null)
             .set("meUuid", UUID.randomUUID().toString()) // UUID
