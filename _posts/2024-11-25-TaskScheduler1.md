@@ -66,7 +66,7 @@ public class ScheduledTask {
 ## TaskScheduler 개념
 
 - 스케줄링을 관리하기 위한 추상화된 인터페이스다.
-    > 주요 구현체 : `ConcurrentTaskScheduler`, `ThreadPoolTaskScheduler`
+    > 기본 구현체 : `ThreadPoolTaskScheduler`
 - 스케줄링 작업 시간이 동적일 때 유용하다.
 - 병렬 처리 지원하여, 여러 개의 쓰레드가 작업을 병렬로 처리할 수 있다.
 - 작업을 설정하고, 취소할 수 있다.
@@ -83,9 +83,10 @@ public class ScheduledTask {
 
 ```java
 @Component
+@RequiredArgsConstructor
 public class SimpleTaskScheduler {
 
-    private final ConcurrentTaskScheduler taskScheduler = new ConcurrentTaskScheduler();
+    private final ThreadPoolTaskScheduler taskScheduler;
 
     // @Scheduled와 동일하게 cron 표현식으로 설정
     public void startSimpleTask() {
@@ -110,13 +111,15 @@ public class SimpleTaskScheduler {
 
 #### [병렬 처리]
 
-기본 구현체인 `ConcurrentTaskScheduler`를 사용하면 **단일 쓰레드**가 작업 시간을 체크하면서 등록된 작업들을 처리한다.
+별도의 쓰레드 풀 설정 없이 `ThreadPoolTaskScheduler`를 사용하면 **단일 쓰레드**가 작업 시간을 체크하면서 등록된 작업들을 처리한다.
+
+<img src="/assets/img/241125/defaultPoolSize.png" alt="defaultPoolSize" width="500">
+
 <br>
 각각 등록되는 작업들에 대해서 단일 쓰레드가 예약 시간을 체크하고, 실행되어야 하는 작업까지 처리한다면 병목 현상이 발생할 것이다.
 <br>
 쓰레드 풀을 설정하여 멀티스레드 기반으로 처리하도록 개선해보자.
-<br><br>
-`ThreadPoolTaskScheduler` 를 사용하며, 이전에 쓰레드 풀을 설정해야 한다.
+<br>
 
 ```java
 @Configuration
