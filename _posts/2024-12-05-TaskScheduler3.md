@@ -13,6 +13,7 @@ tags:
 ## 들어가며
 
 [1. 주요 개념 정리](https://ajroot5685.github.io/posts/TaskScheduler1/)
+
 [2. 시나리오 설계 및 가정](https://ajroot5685.github.io/posts/TaskScheduler2/)
 
 `TaskScheduler`를 짚어보고, 왜 도입해야 하는지를 정리해보았다.
