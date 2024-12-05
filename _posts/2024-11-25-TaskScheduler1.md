@@ -12,6 +12,9 @@ tags:
 
 ## 들어가며
 
+[2. 시나리오 설계 및 가정](https://ajroot5685.github.io/posts/TaskScheduler2/)
+[3. TaskScheduler 도입](https://ajroot5685.github.io/posts/TaskScheduler3/)
+
 특정 시간에 알림을 발송하는 작업을 위해 `@Scheduled`가 아닌 `TaskScheduler`를 사용하여 단일 인스턴스의 자원 사용량을 줄여보았다.
 <br><br>
 다음과 같은 순서로 나눠서 포스팅을 하려 한다.

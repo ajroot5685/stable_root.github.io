@@ -12,7 +12,10 @@ tags:
 
 ## 들어가며
 
-[이전 글](https://ajroot5685.github.io/posts/TaskScheduler1/)에서 `@Scheduled`와 `TaskScheduler`의 개념 및 사용예시를 살펴보았다.
+[1. 주요 개념 정리](https://ajroot5685.github.io/posts/TaskScheduler1/)
+[3. TaskScheduler 도입](https://ajroot5685.github.io/posts/TaskScheduler3/)
+
+이전 글에서 `@Scheduled`와 `TaskScheduler`의 개념 및 사용예시를 살펴보았다.
 <br>
 개념들을 이해했다면 `@Scheduled`는 복잡한 스케줄 작업을 하는 데에 한계가 있다는 것을 알아차렸을 것이다.
 <br>
