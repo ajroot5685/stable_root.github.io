@@ -290,6 +290,18 @@ SRP를 극단적으로 지키기 위해 하나의 클래스 당 하나의 함수
 
 <img src="/assets/img/241215/wtf.png" style="border-radius:5px" alt="wtf" width="600">
 
+## 마무리
+
+어떻게 하면 더 좋은코드를 쓸 수 있을지 고민하던 와중에 좋은 도움이 되었던 책이었다.
+<br>
+그러나 메서드는 하나의 기능만 수행해야 하며, 최대한 쪼개는 것을 권장하는 부분에서는 **오히려 가독성이 떨어진다**고 느꼈었다.
+<br>
+그저 좋다고 막쓰지 말고 내 주관으로 판별할 수 있는 개발자가 되자
+
+{% include embed/youtube.html id='th7n1rmlO4I' %}
+
+<br>
+
 ## 각주
 
 [^hash]: [해시 충돌](https://namu.wiki/w/%ED%95%B4%EC%8B%9C)에서 비슷한 내용이 있다.
