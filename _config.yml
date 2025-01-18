@@ -225,3 +225,8 @@ jekyll-archives:
   
 google_analytics:
   id: G-649MDC9DF5
+
+---
+markdown: kramdown
+kramdown:
+  parse_block_html: true
