@@ -1,6 +1,6 @@
 ---
 title: Internet Protocol - IPv4
-date: 2025-01-18 12:41:00 +09:00
+date: 2025-01-26 16:40:00 +09:00
 categories: [network]
 tags:
   [
